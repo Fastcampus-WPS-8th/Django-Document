@@ -27,9 +27,6 @@ class CommonInfo2(CommonInfo1):
 class User(CommonInfo1):
     username = models.CharField(max_length=50)
 
-    class Meta(CommonInfo1.Meta):
-        db_table = 'abc_user'
-
 
 class Student(CommonInfo2):
     cls = models.CharField(max_length=50)

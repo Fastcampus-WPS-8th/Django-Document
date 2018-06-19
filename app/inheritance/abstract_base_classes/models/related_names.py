@@ -1,14 +1,14 @@
 from django.db import models
 
 __all__ = (
-    'User',
+    'RelatedUser',
     'PostBase',
     'PhotoPost',
     'TextPost',
 )
 
 
-class User(models.Model):
+class RelatedUser(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -17,8 +17,9 @@ class User(models.Model):
 
 class PostBase(models.Model):
     author = models.ForeignKey(
-        User,
+        RelatedUser,
         on_delete=models.CASCADE,
+        related_name='%(class)ss',
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -27,8 +28,12 @@ class PostBase(models.Model):
 
 
 class PhotoPost(PostBase):
+    # author
+    # related_name: photoposts
     photo_url = models.CharField(max_length=500)
 
 
 class TextPost(PostBase):
+    # author
+    # related_name: textposts
     text = models.TextField()
