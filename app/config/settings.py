@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'inheritance.multi_table.apps.MultiTableConfig',
     'inheritance.proxy.apps.ProxyConfig',
 
+    'weblog.apps.WeblogConfig',
+
+    'django_extensions',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
